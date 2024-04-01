@@ -1,0 +1,44 @@
+{% extends 'layout/app-layout.html' %}
+{% block 'content' %}
+    <head>
+        <style>
+            body {
+                background-color: #ffffff; /* background color of the body */
+                color: #333; /* text color */
+            }
+
+            form {
+                max-width: 400px;
+                margin: 0 auto;
+                margin-top: 70px;
+                padding: 20px;
+                background-color: #79b6a7; /* background color for the form */
+                border: 1px solid #79b6a7; /* Add a border with a lighter shade */
+                border-radius: 5px;
+                color: #fcfcfa; /* text color inside the form */
+            }
+
+            p {
+                margin-bottom: 20px;
+            }
+
+            input[type="submit"] {
+                background-color: #d9534f; /* background color of the confirm button */
+                color: white; /* text color of the confirm button */
+                padding: 10px 15px; /* padding of the confirm button */
+                border: none; /* Remove the border */
+                border-radius: 5px; /* Add border-radius for rounded corners */
+                cursor: pointer; /* Add a pointer cursor on hover */
+            }
+        </style>
+    </head>
+
+    <div class="container mt-4">
+        <form method="post" action="">
+            {% csrf_token %}
+            <h1>Delete</h1>
+            <p>Are you sure you want to delete "{{ product.name }}"?</p>
+            <input type="submit" value="Confirm">
+        </form>
+    </div>
+{% endblock %}

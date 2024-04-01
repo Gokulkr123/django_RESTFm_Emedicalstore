@@ -1,0 +1,34 @@
+<style>
+  nav {
+    background-color: #7baf9a; /* Set background color */
+    padding: 25px; /*  padding  */
+  }
+
+  nav a {
+    color: #fff; /* Set text color */
+    margin-right: 15px; /* Add some space between links */
+    text-decoration: none;
+  }
+
+  nav a:hover {
+    color: #fff; /* Text color on hover */
+    text-decoration: none; /* to remove the underline */
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="{% url 'home' %}">Home</a>
+  <a class="navbar-brand" href="{% url 'about-us' %}">About Us</a>
+  <a class="navbar-brand" href="{% url 'createproduct' %}">Create</a>
+  <a class="navbar-brand" href="{% url 'retrieveproduct' %}">View List</a>
+  <form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit" style="background-color: red; border: none; color: white;">Log Out</button>
+  </form>
+
+  <form method="get" action="{% url 'productsearch' %}">
+    <input type="text" name="q" placeholder="Search...">
+    <button type="submit" style="background-color: rgb(113, 161, 113); color: white;">Search</button>
+  </form>
+
+</nav>

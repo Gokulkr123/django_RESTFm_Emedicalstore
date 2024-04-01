@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Logout Page</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            color: #000; /* Changed text color to black for better readability */
+            font-family: Arial, sans-serif; /* Added a fallback font */
+        }
+
+        .container {
+            max-width: 400px; /* Set max-width for better layout on larger screens */
+            margin: 0 auto; /* Center the container horizontally */
+            padding: 20px; /* Add some padding for spacing */
+            text-align: center; /* Center-align content within the container */
+        }
+
+        p {
+            color: #4c8be2;
+            margin-top: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #2035f5;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% if user.is_authenticated %}
+            <p>You are currently logged in as {{ user.username }}.</p>
+            <form method="post" action="{% url 'logout' %}"> <!-- Added action attribute for logout action -->
+                {% csrf_token %}
+                <button type="submit">Log Out</button>
+            </form>
+        {% else %}
+            <p>You are not currently logged in.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

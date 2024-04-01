@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            background: url('https://images.pexels.com/photos/7615559/pexels-photo-7615559.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') center center fixed; /* Replace 'path/to/your/image.jpg' with the actual path to your image */
+            background-size: cover;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Ensure the background covers the entire viewport */
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .custom-form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 60px;
+            background-color: rgba(155, 227, 201, 0.94); /* Adjust the opacity as needed */
+            border: 1px solid rgba(155, 227, 201, 0.94)b4;
+            border-radius: 5px;
+            color: #ffffff;
+        }
+
+        h1, h2 {
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #76b899;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+        }
+
+        .btn-secondary {
+            color: #fff;
+            padding: 2px 2px;
+            border: none;
+            border-radius: 2px;
+            background-color: #76b899;
+            border-color: #76b899;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-4">
+    <h1> <span style="color:rgb(186, 232, 194);">E</span>-MedSTORE</h1>
+    <div class="custom-form-container">
+        <h2>Admin Login</h2>
+        <form method="post" class="my-4">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Login</button>
+            {% if message %}
+                <p>{{ message }}</p>
+            {% endif %}
+            <p class="mt-2">Don't have an account? Create one, please Sign Up <a href="{% url 'signup' %}" class="btn btn-secondary">Sign Up</a></p>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

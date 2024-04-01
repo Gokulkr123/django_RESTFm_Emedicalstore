@@ -1,0 +1,65 @@
+{% extends 'layout/app-layout.html' %}
+{% block 'content' %}
+    <head>
+        <style>
+            body {
+                background-color: #f2f2f2; /* background color of the body to white */
+                color: #333; /* text color */
+            }
+
+            h1 {
+                color: #e2eae7; /* color of the heading */
+                text-align: center; /* Center-align the heading */
+            }
+
+            .container {
+                margin-top: 20px;
+                padding: 20px;
+                background: url('https://images.pexels.com/photos/7615559/pexels-photo-7615559.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') center center fixed; /* Replace 'path/to/your/background-image.jpg' with the actual path to your background image */
+                background-size: cover; /* Use 'cover' to ensure the background image covers the entire container */
+                border-radius: 15px; /* Add border-radius for rounded corners */
+            }
+
+            form {
+                max-width: 400px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #85bcaa; /* color for the form */
+                border: 1px solid #85bcaa; /* border color */
+                border-radius: 5px;
+                color: #ffffff; /* text color inside the form */
+            }
+
+            /* Style the form elements */
+            label {
+                display: block;
+                margin-bottom: 8px;
+            }
+
+            input[type="text"], select {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 10px;
+                box-sizing: border-box;
+            }
+
+            button.btn-update {
+                background-color: #4CAF50; /* background color of the update button */
+                color: white; /* text color of update button */
+                padding: 10px 15px; /* padding to the update button */
+                border: none; /* Remove the border */
+                border-radius: 5px; /* rounded corners */
+                cursor: pointer; /* pointer cursor on hover */
+            }
+        </style>
+    </head>
+
+    <div class="container mt-4">
+        <h1>Edit the Data</h1>
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-update" value="update" type="submit">Update</button>
+        </form>
+    </div>
+{% endblock %}

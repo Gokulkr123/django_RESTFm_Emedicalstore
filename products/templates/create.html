@@ -1,0 +1,60 @@
+{% extends 'layout/app-layout.html' %}
+{% block 'content' %}
+
+<head>
+    <style>
+        /* Add additional internal styles here */
+        body {
+            background-color: #ffffff; /* Set the background color of the body to white */
+            color: #333; /* text color */
+        }
+
+        .custom-form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            margin-top: 50px;
+            padding: 60px;
+            background: url('https://images.pexels.com/photos/7615559/pexels-photo-7615559.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') center center fixed; /* Replace 'path/to/your/image.jpg' with the actual path to your image */
+            background-size: cover; /* Ensure the background covers the entire container */
+            border: 1px solid #0065fc; /* form's border color */
+            border-radius: 5px;
+            color: #ffffff; /* Set text color inside the form */
+        }
+
+        h1 {
+            color: #ffffff; /* Set the color of the heading to white */
+            text-align: center; /* Center-align the heading */
+        }
+
+        /* Style the description field to be smaller */
+        #id_description {
+            max-width: 100%; /* Set maximum width for the description field */
+            width: 100%;
+        }
+
+        /* Style the submit button */
+        .btn-submit {
+            background-color: #4CAF50; /* background color of submit button */
+            color: white; /* text color of submit button */
+            padding: 10px 15px; /* padding to submit button */
+            border: none; /* Remove the border */
+            border-radius: 5px; /* Add border-radius for rounded corners */
+            cursor: pointer; /* Add hand pointer cursor on hover */
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<div class="container mt-4">
+    <div class="custom-form-container">
+
+        <h1>Admin Create Page</h1>
+        <h3>Add a new Product</h3>
+        <form action='' method='post'>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-submit">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

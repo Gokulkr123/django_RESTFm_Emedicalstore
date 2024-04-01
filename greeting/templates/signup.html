@@ -1,0 +1,74 @@
+<head>
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        .custom-form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            margin-top: 50px;
+            padding: 30px;
+            background: url('https://images.pexels.com/photos/7615559/pexels-photo-7615559.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') center center fixed; /* Replace 'path/to/your/image.jpg' with the actual path to your background image */
+            background-size: cover; /* Use 'cover' to ensure the background image covers the entire container */
+            border: none;
+            color: #ffffff;
+            border-radius: 5px;
+        }
+
+        h2 {
+            color: #ffffff;
+            text-align: center;
+        }
+
+        /* Style the form fields */
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 5px;
+            background-color: #ffffff;
+        }
+
+        button {
+            background-color: #53af89;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .errormessage {
+            color: rgb(10, 125, 240);
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<div class="container mt-4">
+    <div class="custom-form-container">
+        <h2>Sign Up</h2>
+        <form method="post">
+            {% csrf_token %}
+            {% for field in form %}
+                <div>
+                    {{ field.label_tag }} {{ field }}
+                    {% if field.errors %}
+                        <div class="errormessage">
+                            {% for error in field.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+</div>
